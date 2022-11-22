@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden; 
+    color: #388087;
+
+}
+
+:root{
+    font-size:1rem;
+    font-weight: 400;
+}
+
+.Dashboard_main_div{
+    color:#388087;
+    font-size: 1.2rem;
+    /* padding: 1rem; */
+    width: 100%;
+    height: 100%  ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: hidden;
+
+}
+
+
+
+.topbar{
+    width: 100%;
+    display: flex;
+    height: max-content;
+    font-size: 1.3rem;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: #388087;
+    align-items: center;
+}
+
+.text_color{
+    color: #388087;
+}
+
+/* .react-calender div{
+    color:#388087;
+    width: 30rem;
+} */
+
+.Doctor_Dashboard{
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    /* overflow: scroll; */
+}
+
+.Doctor_Dashboard>div{
+    display: flex;
+    /* flex-direction: column; */
+    height: max-content;
+    /* width: 48%; */
+    height: 100%;
+    /* justify-content: flex-start;
+    align-items: center; */
+    color: #388087;
+    margin: 1rem;
+    /* overflow: scroll; */
+}
+
+.left_side{
+    flex-direction: row;
+    width: 60%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.right_side{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid black;
+    width: 25%;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+}
+
+
+.text_color{
+    color:#388087;
+}
+
+.light_color{
+    background-color:#34a8b3;
+}
+.news_in{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    align-items:flex-start;
+    width: 100%;
+    height: max-content;
+    /* background-color: aqua; */
+    background-color: #388087;
+}

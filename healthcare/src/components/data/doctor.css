@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden; 
+    /* color: #388087; */
+}
+
+:root{
+    font-size:1rem;
+    font-weight: 400;
+    color: #388087;
+    /* --font_color:# */
+}
+
+
+.doctor_data_main{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: aquamarine; */
+}
+td,th{
+    padding: 0.5rem;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #BADFE7;
+  }
+
+
+.pop_up_all_details{
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    background-color: rgba(96, 96, 96, 0.7);
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.pop_up_wrap{
+    width: 30rem;
+    height: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    /* align-items:flex-start;     */
+    background-color: #c4e4f0;
+    border-radius: 0.5rem;
+    border: 2px solid black;
+    color:black
+}
+
+.pop_up_wrap div{
+    color: black;
+    /* margin: 0.5rem; */
+}

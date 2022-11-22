@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden; 
+    color: #388087;
+
+}
+
+:root{
+    font-size:1rem;
+    font-weight: 400;
+}
+
+.doctor_leave_main{
+    height: 100%;
+    width: 100%;
+    background-color: #f6f6f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leave_wrapper{
+    width: 50%;
+    min-width: max-content;
+    min-height: 30rem;
+    /* min-height: ; */
+    height: 50%;
+    padding: 1rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text_color{
+    color:#388087;
+}

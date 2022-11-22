@@ -1,0 +1,22 @@
+/healthcare/node_modules
+/server/node_modules
+
+/healthcare/.pnp
+/healthcare/.pnp.js
+
+# testing
+/healthcare//coverage
+
+# production
+/healthcare//build
+
+# misc
+/healthcare/.DS_Store
+/healthcare/.env.local
+/healthcare/.env.development.local
+/healthcare/.env.test.local
+/healthcare/.env.production.local
+
+/healthcare/npm-debug.log*
+/healthcare/yarn-debug.log*
+/healthcare/yarn-error.log*
