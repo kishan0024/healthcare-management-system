@@ -72,7 +72,7 @@ router.post("/DeleteMedicine",async (req,res)=>
             Status: error
           })
         });
-
+        
 
     }
 
