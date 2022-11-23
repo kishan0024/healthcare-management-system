@@ -9,13 +9,13 @@ const router=express.Router();
 router.post("/MarkLeave",async(req,res)=>{
     const DoctorWorkId=req.body.DoctorWorkId;
     const Date=req.body.Date;
-    const Duration=req.body.Duration;
+    const EndDate=req.body.EndDate;
     const Reason=req.body.Reason;
 
     const create_new_leave=new DoctorLeave({
         "DoctorWorkId":DoctorWorkId,
         "Date":Date,
-        "Duration":Duration,    
+        "EndDate":EndDate,    
         "Reason":Reason
     });
 

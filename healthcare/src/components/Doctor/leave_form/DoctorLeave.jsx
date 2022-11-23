@@ -5,7 +5,7 @@ export const DoctorLeave = () => {
     // localhost:5000/Leave/MarkLeave
     const DoctorWorkId=sessionStorage.getItem("workId");
     const [Reason,setReason]=useState("");
-    const [Duration,setDuration]=useState("");
+    // const [Duration,setDuration]=useState("");
 const submit_leave=async ()=>
 {
     let today=new Date(document.getElementById("Date").value);
@@ -13,11 +13,19 @@ const submit_leave=async ()=>
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
     today = dd + '/' + mm + '/' + yyyy;
+
+    let EndDate=new Date(document.getElementById("EndDate1").value);
+    dd = String(EndDate.getDate()).padStart(2, '0');
+    mm = String(EndDate.getMonth() + 1).padStart(2, '0'); //January is 0!
+    yyyy = EndDate.getFullYear();
+    EndDate = dd + '/' + mm + '/' + yyyy;
+    console.log(EndDate);
+
     const data={
         "DoctorWorkId":DoctorWorkId,
         "Reason":Reason,
-        "Duration":Duration,
-        "Date":today
+        "Date":today,
+        "EndDate":EndDate
     }
     console.log(data);
     
@@ -51,10 +59,10 @@ const submit_leave=async ()=>
                 <input type="date" className="form-control" id="Date" required/>
                 </div>
             </div>
-            <div className="form-group row w-75 mt-2">
-                <label for="inputPassword" className="col-sm-2 col-form-label">Duration</label>
+            <div className="form-group row w-75">
+                <label for="inputPassword" className="col-sm-2 col-form-label">End Date</label>
                 <div className="col-sm-10">
-                <input type="number" className="form-control" id="Duration" placeholder='Days'required onChange={e=>setDuration(e.target.value)}/>
+                <input type="date" className="form-control" id="EndDate1" required/>
                 </div>
             </div>
             <div className="form-group row w-75 mt-2">

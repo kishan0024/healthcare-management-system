@@ -10,7 +10,7 @@ const DoctorLeave=new Schema({
         type:String,
         required:true
     },
-    "Duration":{
+    "EndDate":{
         type:String,
         required:true
     },
