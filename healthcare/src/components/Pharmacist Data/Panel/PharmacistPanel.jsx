@@ -4,6 +4,7 @@ import './pharmacist.css'
 import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Pharmacist_Dash } from '../Dashboard/Pharmacist_Dash'
+import { AddMedicine } from '../Add Med/AddMedicine'
 
 export const PharmacistPanel = () => {
 
@@ -12,6 +13,10 @@ export const PharmacistPanel = () => {
     if(id=="Dashboard")
     {
         comp=<Pharmacist_Dash/>
+    }
+    else if(id=="AddMedicine")
+    {
+      comp=<AddMedicine/>
     }
 
   return (

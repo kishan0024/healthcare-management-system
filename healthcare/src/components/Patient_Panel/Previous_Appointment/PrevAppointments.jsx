@@ -6,8 +6,9 @@ import { useNavigate } from 'react-router-dom';
 export const PrevAppointments = () => {
     let navigate = useNavigate();
 
-    const [prevReportList, setPrevRep] = useState();
+    const [prevReportList, setPrevRep] = useState([]);
     const PatientUniqueId=sessionStorage.getItem("PatientUniqueId");
+    console.log(PatientUniqueId);
 
     useEffect(() => {
         const func=async()=>{
@@ -21,8 +22,18 @@ export const PrevAppointments = () => {
            
           let req=await fetch("http://localhost:5000/Appointment/ShowToPatient",options);
           let res=await req.json();
-          setPrevRep(res);
-        //   console.log(res);
+          console.log(res)
+
+          if(res.Status)
+          {
+            setPrevRep("nodata");
+          }
+          else
+          {
+            setPrevRep(res);
+            console.log(res);
+          }
+        
         }
         func();
     }, [])
@@ -39,9 +50,6 @@ export const PrevAppointments = () => {
     }
     else {
 
-
-
-        // console.log(sessionStorage.getItem("PatientUniqueId"));
         return (
             <div className='app_main text_big'>
                 <div className='w-100 p-2'>
@@ -51,7 +59,7 @@ export const PrevAppointments = () => {
                 </div>
                 <div className='wrapper_4  text-center' style={{fontSize:"1.2rem"}}>
 
-                    {prevReportList && prevReportList.map((e)=>{
+                    { prevReportList!="nodata" ? prevReportList.map((e)=>{
 
                     return(
                         <div className='app_div'>
@@ -65,7 +73,11 @@ export const PrevAppointments = () => {
                         </div>
                     </div>
                     )
-                    })}
+                    })
+                    :
+                    <div className='text_big'>
+                        No previous appointments</div>
+                }
                   
 
 

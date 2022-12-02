@@ -8,21 +8,20 @@ export const UpcomingApp = () => {
 
   const [prevReportList, setPrevRep] = useState();
   const PatientUniqueId=sessionStorage.getItem("PatientUniqueId");
-
+// console.log(PatientUniqueId);
   useEffect(() => {
       const func=async()=>{
       let options = {
           method: 'POST',
           headers: {
-            'Content-Type': 'application/json;charset=utf-8'
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify({PatientUniqueId})
+          body: JSON.stringify({"PatientUniqueId": PatientUniqueId})
         }
          
         let req=await fetch("http://localhost:5000/Appointment/ShowToPatientUp",options);
         let res=await req.json();
-        setPrevRep(res);
-      //   console.log(res);
+        console.log(res);
       }
       func();
   }, [])

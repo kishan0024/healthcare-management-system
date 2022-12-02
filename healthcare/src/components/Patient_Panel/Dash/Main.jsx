@@ -30,7 +30,7 @@ export const Main = () => {
 
             </div>
             <div className='container'>
-                <Link to="/Patient/PreviousApps">
+                <Link to="/Patient/PreviousMeds">
                     <div className='container'>
                         <div className='text_color text-center'>See Prescribed Medicines</div>
                         <div className='text_color'>
@@ -44,6 +44,16 @@ export const Main = () => {
             <Link to="/Patient/UpcomingApp">
                     <div className='container'>
                         <div className='text_color text-center'>See Upcoming Appointments</div>
+                        <div className='text_color'>
+                    <i class="fa fa-id-card-o text_big_2" aria-hidden="true"></i>
+                    </div>
+                    </div>
+                </Link>
+            </div>
+            <div className='container'>
+            <Link to="/Patient/UpcomingApp">
+                    <div className='container'>
+                        <div className='text_color text-center'>See Previous Data</div>
                         <div className='text_color'>
                     <i class="fa fa-id-card-o text_big_2" aria-hidden="true"></i>
                     </div>

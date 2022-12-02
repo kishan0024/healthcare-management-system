@@ -27,7 +27,7 @@ export const Sidebar_pharmacist = () => {
             </div>
 
             <div>
-              <Link to=''>
+              <Link to='/Pharmacist/AddMedicine'>
             <i className="fas fa-user-md"></i>
             <div>Add Medicine</div>
             </Link>

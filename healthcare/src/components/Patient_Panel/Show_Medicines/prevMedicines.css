@@ -72,3 +72,10 @@
     align-items: flex-start;
 }
 
+.drop_down{
+    overflow: auto;
+    font-size: 1rem;
+    max-height: 15rem;
+    display: none;
+}
+
