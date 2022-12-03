@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Pharmacist_Dash } from '../Dashboard/Pharmacist_Dash'
 import { AddMedicine } from '../Add Med/AddMedicine'
+import { DeleteMedicine } from '../delete drug/DeleteMedicine'
 
 export const PharmacistPanel = () => {
 
@@ -17,6 +18,10 @@ export const PharmacistPanel = () => {
     else if(id=="AddMedicine")
     {
       comp=<AddMedicine/>
+    }
+    else if(id=="DelMedicine")
+    {
+      comp=<DeleteMedicine/>
     }
 
   return (

@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express=require("express");
 const MedicineSchema=require("../models/MedicineSchema");
 const router=express.Router();
@@ -20,8 +21,16 @@ router.post("/AddMedicine",async (req,res)=>{
             "quantity":quantity,
             "stock":stock
         });
-        create_new_medicine.save();
-        res.json(create_new_medicine);
+        create_new_medicine.save(function(err,result){
+          if(err)
+          {
+            res.json({Status:err});
+          } 
+          else
+          {
+            res.json({Status:"successfully addedd...."});
+          }
+        })
 
     }
 

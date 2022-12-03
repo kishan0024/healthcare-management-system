@@ -42,9 +42,17 @@
     -webkit-box-shadow: 5px 6px 5px -1px rgba(0,0,0,0.44);
     -moz-box-shadow: 5px 6px 5px -1px rgba(0,0,0,0.44);
     box-shadow: 5px 6px 5px -1px rgba(0,0,0,0.44);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
 
     overflow-y: auto;
 
+}
+
+.wrapper>div{
+    width: 100%;
 }
 
 .text_big_1{
