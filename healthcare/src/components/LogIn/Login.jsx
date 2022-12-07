@@ -82,9 +82,8 @@ console.log(dis);
                   {
                     console.log(userType);
                     navigate('/Doctor/Dashboard');
-                    
                   }
-                  else if(userType="Pharmacist")
+                  else if(userType=="Pharmacist")
                   {
                     navigate('/Pharmacist/Dashboard')
                   }

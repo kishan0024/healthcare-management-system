@@ -43,9 +43,18 @@ export const Sidebar_pharmacist = () => {
         </div>
 
         <div>
-          <Link to=''>
+          <Link to='/Pharmacist/ChangePrice'>
             <i className="fas fa-syringe"></i>
             <div>Change Price</div>
+
+          </Link>
+
+        </div>
+
+        <div>
+          <Link to='/Pharmacist/AddStock'>
+          <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <div>Add Stock</div>
 
           </Link>
 

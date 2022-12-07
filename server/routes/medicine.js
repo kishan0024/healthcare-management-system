@@ -9,9 +9,15 @@ router.post("/AddMedicine",async (req,res)=>{
     const quantity=req.body.quantity;
     const stock=req.body.stock;
     //validation to be added in front end
+    const data=await MedicineSchema.findOne({medicineName});
     if(medicineName=="" || price=="" || quantity=="")
     {
         res.json({"Status":"FieldsNotFilled"});
+    }
+    else if(data)
+    {
+      res.json({"Status":"Medicine Already Addedd..."});
+
     }
     else
     {

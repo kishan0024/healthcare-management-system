@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import { Pharmacist_Dash } from '../Dashboard/Pharmacist_Dash'
 import { AddMedicine } from '../Add Med/AddMedicine'
 import { DeleteMedicine } from '../delete drug/DeleteMedicine'
+import { ChangePrice } from '../Change Price/ChangePrice'
+import { AddStock } from '../add Stock/AddStock'
 
 export const PharmacistPanel = () => {
 
@@ -22,6 +24,14 @@ export const PharmacistPanel = () => {
     else if(id=="DelMedicine")
     {
       comp=<DeleteMedicine/>
+    }
+    else if(id=="ChangePrice")
+    {
+      comp=<ChangePrice/>
+    }
+    else if(id=="AddStock")
+    {
+      comp=<AddStock/>
     }
 
   return (

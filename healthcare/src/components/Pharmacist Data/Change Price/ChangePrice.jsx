@@ -1,13 +1,14 @@
 import React from 'react'
-import './deleteMedicine.css'
+import './addmedicine.css'
 import Autocomplete from 'react-autocomplete'
 import { useState, useEffect } from 'react'
-// import data from '../Add Med/drugData.json'
+import data from '../Add Med/drugData.json'
 import priceData from '../Add Med/drugPrice.json'
 // import { _renderMatches } from 'react-router/lib/hooks'
-export const DeleteMedicine = () => {
+export const ChangePrice = () => {
 
   const [drugName, setDrug] = useState();
+  const [price,setPrice]=useState();
   const [data,setData]=useState([]);
   useEffect(() => {
 
@@ -62,7 +63,7 @@ export const DeleteMedicine = () => {
   const submitData = () => {
 
 
-    if (drugName == "") {
+    if (drugName == "" || price=="") {
       alert("please fill all the details...");
     }
     else {
@@ -73,11 +74,11 @@ export const DeleteMedicine = () => {
 
             'Content-Type': 'application/json;charset=utf-8'
           },
-          body: JSON.stringify({ "medicineName": drugName })
+          body: JSON.stringify({ "medicineName": drugName,"newPrice":price })
         }
 
 
-        let req = await fetch("http://localhost:5000/Medicine/DeleteMedicine", options);
+        let req = await fetch("http://localhost:5000/Medicine/ChangePrice", options);
         let response = await req.json();
 
         alert(response.Status);
@@ -90,23 +91,23 @@ export const DeleteMedicine = () => {
 
   }
 
+  
+
 
 
   return (
-    <div className='delMedicine_main'>
+    <div className='Changeprice_main'>
 
       <div className='wrapper'>
+        <div className='w-100 display-6 text-center text_color'>Change Price</div>
+        <div clas>
 
-        <div className='w-100 display-6 text-center text_color'>Delete Medicine</div>
-        
 
+          <div class="form-group col w-100 h-100 justify-content-between mt-2">
 
-          <div class="form-group col w-100 justify-content-center align-items-center mt-2">
-
-    <div>
-    <div className='row w-100 h-100 justify-content-center align-items-center mt-2'>
-              <div className='col-sm-5 text_color text-center'>Select Drug:</div>
-              <div class="col-sm-5">
+            <div className='row w-100 justify-content-center mt-2'>
+              <label for="inputPassword" class="col-sm-2 col-form-label">Select Drug</label>
+              <div class="col-sm-8">
                 <Autocomplete
 
 
@@ -147,19 +148,23 @@ export const DeleteMedicine = () => {
 
               </div>
             </div>
+            <div className='row w-100 justify-content-center mt-2'>
+              <label for="inputPassword" class="col-sm-2 col-form-label">Enter New Price</label>
+              <div class="col-sm-8">
+                <input type="text" class="form-control" id="price" placeholder="Price" value={price} onChange={e => setPrice(e.target.value)} />
 
-    </div>
+              </div>
+            </div>
+
            
 
-
-
             <div className='row w-100 justify-content-center mt-4'>
-              <button type="button" class="btn btn-dark" onClick={() => submitData()}>Delete</button>
+              <button type="button" class="btn btn-dark" onClick={()=>submitData()}>Change</button>
             </div>
 
           </div>
 
-        
+        </div>
       </div>
 
     </div>
