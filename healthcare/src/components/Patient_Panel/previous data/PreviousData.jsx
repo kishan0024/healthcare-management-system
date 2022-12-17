@@ -1,7 +1,6 @@
 import React from 'react'
-import './previosData.css'
-
-import { useState } from 'react';   
+import { useState,useEffect } from 'react';
+import './previousdata.css'
 
 export const PreviousData = () => {
   const [allergies,setAllergy]=useState();
@@ -10,6 +9,51 @@ export const PreviousData = () => {
 
   const [popName,setPopName]=useState();
   const [desc,setDesc]=useState();
+  const patientUniqueId=sessionStorage.getItem("PatientUniqueId");
+
+  useEffect(() => {
+    const previous_data=async()=>{
+   
+      let options = {
+        method: 'POST',
+        headers: {
+          
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify({patientUniqueId}),
+      }
+      let req=await fetch("http://localhost:5000/Allergy/FetchAllAllergy",options);
+      let allergies1=await req.json();
+      // console.log(allergies1);
+     
+      
+      let req1=await fetch("http://localhost:5000/Disease/FetchAllDisease",options);
+      let disease1=await req1.json();
+      
+  
+       let req2=await fetch("http://localhost:5000/Reports/ShowReport",options);
+       let reports1=await req2.json();
+  
+       console.log(allergies1,disease1,reports1);
+       
+       if(allergies1.Status=="404NotFound" && disease1.Status=="404NotFound" && reports1.Status=="404NotFound")
+       {
+        alert("no data found");
+       }
+       else
+       {
+        setAllergy(allergies1);
+        setDisease(disease1);
+        setReport(reports1);
+  
+       }
+  
+    }
+
+    previous_data();
+  
+  }, [])
+  
 
   const see_desc=(name,desc)=>{
     document.getElementById('pop_up_desc').style.display="flex";
@@ -22,44 +66,7 @@ export const PreviousData = () => {
     document.getElementById('pop_up_desc').style.display="none";
   }
 
-  const previous_data=async()=>{
-    const patientUniqueId=document.getElementById("cardNo").value;
-    let options = {
-      method: 'POST',
-      headers: {
-        
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify({patientUniqueId}),
-    }
-    let req=await fetch("http://localhost:5000/Allergy/FetchAllAllergy",options);
-    let allergies1=await req.json();
-    // console.log(allergies1);
-   
-    
-    let req1=await fetch("http://localhost:5000/Disease/FetchAllDisease",options);
-    let disease1=await req1.json();
-    
-
-     let req2=await fetch("http://localhost:5000/Reports/ShowReport",options);
-     let reports1=await req2.json();
-
-     console.log(allergies1,disease1,reports1);
-     
-     if(allergies1.Status=="404NotFound" && disease1.Status=="404NotFound" && reports1.Status=="404NotFound")
-     {
-      alert("no data found");
-     }
-     else
-     {
-      setAllergy(allergies1);
-      setDisease(disease1);
-      setReport(reports1);
-
-     }
-
-  }
-
+ 
   const see_report=(url)=> 
   {
     window.open(url,"_blank");
@@ -73,7 +80,7 @@ export const PreviousData = () => {
   return (
 
     
-    <div className='prev_data_main'>
+    <div className='prev_data_main mt-2'>
 
 
 {/* pop up starts  */}
@@ -95,11 +102,7 @@ export const PreviousData = () => {
       {/* pop up ends  */}
 
 
-      <div class="mb-4 text-center mt-3">
-        <label for="cardNo" className="form-label">Enter Card No.</label>
-        <input type="text" className="form-control" id="cardNo" placeholder="Card No."/>
-        <button type="button" className="btn btn-primary mt-2 w-50" onClick={previous_data}>Search</button>
-      </div>
+
    
   {/* upper div starts  */}
 

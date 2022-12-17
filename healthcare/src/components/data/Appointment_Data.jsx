@@ -43,6 +43,7 @@ const change_status=async(PatientUniqueId)=>
     
     let req=await fetch("http://localhost:5000/Appointment/ChangeStatus",options);
     let res=await req.json();
+    console.log(res);
 
     let options1 = {
         method: 'POST',

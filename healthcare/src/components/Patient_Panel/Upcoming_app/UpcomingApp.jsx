@@ -6,7 +6,7 @@ import { Link,useNavigate } from 'react-router-dom'
 export const UpcomingApp = () => {
   let navigate = useNavigate();
 
-  const [prevReportList, setPrevRep] = useState();
+  const [prevReportList, setPrevRep] = useState([]  );
   const PatientUniqueId=sessionStorage.getItem("PatientUniqueId");
 // console.log(PatientUniqueId);
   useEffect(() => {
@@ -21,7 +21,14 @@ export const UpcomingApp = () => {
          
         let req=await fetch("http://localhost:5000/Appointment/ShowToPatientUp",options);
         let res=await req.json();
-        console.log(res);
+        if(res.Status)
+        {
+            setPrevRep("noData");
+        }
+        else
+        {
+        setPrevRep(res);
+        }
       }
       func();
   }, [])
@@ -50,18 +57,23 @@ export const UpcomingApp = () => {
               </div>
               <div className='wrapper_4  text-center' style={{fontSize:"1.2rem"}}>
 
-                  {prevReportList && prevReportList.map((e)=>{
+                  {prevReportList!="noData" ? prevReportList.map((e)=>{
 
                   return(
                       <div className='app_div'>
                       <div className='app_div_1'>
                           <div>{e.Date}</div>
                           <div>{e.StartTime+"-"+e.EndTime}</div>
-                          <div>{e.DoctorName}</div>
+                          <div>{e.DoctorWorkId}</div>
                       </div>
                   </div>
                   )
-                  })}
+                  })
+                  :
+                  <>
+                  <div className='text_big'>You don't have any upcoming appointment..</div>
+                  </>
+                }
                 
 
 

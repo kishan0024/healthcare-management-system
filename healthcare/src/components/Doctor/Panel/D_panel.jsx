@@ -55,11 +55,16 @@ if(user_type!="Doctor")
       
       {gmail}
       <i className="fas fa-user p-2"></i>
+      <div>
+    <button type="button" class="btn btn-primary w-auto" style={{backgroundColor:"",borderRadius:"0.7rem"}}>Log Out</button>
+    </div>  
     </div>
+    
     <div className='w-100 text-center' style={{fontSize:"2rem",color:"#388087"
   }}>
  {h_name.toUpperCase()} HOSPITALS
     </div>
+   
     <div className='Doctor_Dashboard'>
     
 

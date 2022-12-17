@@ -51,7 +51,7 @@ export const Main = () => {
                 </Link>
             </div>
             <div className='container'>
-            <Link to="/Patient/UpcomingApp">
+            <Link to="/Patient/PrevData">
                     <div className='container'>
                         <div className='text_color text-center'>See Previous Data</div>
                         <div className='text_color'>

@@ -70,7 +70,7 @@ export const AddPharmacist = () => {
     let num=Math.floor(Math.random() * 100000);
     setOTP(num);
     var newWindow;
-    let URL="http://smartinfo.epizy.com/Kishan_send_email.php?email="+email+"&otp="+num;
+    let URL="http://keyur.epizy.com/Send_otp.php?email="+email+"&otp="+num;
       
     // window.open(URL,"_blank");
     function windowOpen() {   
@@ -165,7 +165,7 @@ export const AddPharmacist = () => {
       <div className="input-group input-group-sm mb-3 w-75">
 <span className="input-group-text" id="inputGroup-sizing-sm">Small</span>
 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="enteredOTP"/>
-<button type="button" class="btn btn-primary" onClick={varify_login}>Primary</button>
+<button type="button" class="btn btn-primary" onClick={varify_login}>Varify</button>
 </div>
 
       </div>

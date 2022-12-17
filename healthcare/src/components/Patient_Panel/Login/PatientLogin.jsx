@@ -70,11 +70,11 @@ const submit_login=async()=>{
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password" onChange={e=>setPassword(e.target.value)} value={password} />
                   </div>
-                  <div class="form-check">
+                  {/* <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                  </div>
-                  <button type="submit" className="btn btn-primary w-75" onClick={submit_login}>Submit</button>
+                  </div> */}
+                  <button type="submit" className="btn btn-primary w-75 mt-2" onClick={submit_login}>Submit</button>
 
                   <hr className="my-4" />
 

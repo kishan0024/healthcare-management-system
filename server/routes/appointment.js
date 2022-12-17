@@ -487,13 +487,15 @@ router.post("/ShowToDoctor",async (req,res)=>{
     {
         // data=data.json();
         // let new_data=[];
-        // res.send(data) ; 
+        // res.send(data) ;
+        console.log(data); 
 
         let New_data = [] ; 
         for(var i=0;i<data.length;i++)
         {
             const PatientUniqueId=data[i].PatientUniqueId;
-            const PatientName=await patientSchema.findOne({PatientUniqueId});
+            const PatientName=await patientSchema.findOne({UniqueId:PatientUniqueId});
+            console.log(PatientUniqueId);
             const DoctorName=await UserSchema.findOne({WorkId:DoctorWorkId});
             let new_data = {
                 "PatientName" : PatientName.patientName, 
@@ -540,7 +542,7 @@ router.post("/ShowToPatient",async (req,res)=>{
             const PatientName=await patientSchema.findOne({UniqueId:PatientUniqueId});
             // console.log(PatientName.patientName);
             const DoctorName=await UserSchema.findOne({WorkId:DoctorWorkId});
-            const URL=await BillSchema.findOne({patientUniqueId:PatientUniqueId,DoctorWorkId,Date:data[i].Date});
+            const URL=await BillSchema.findOne({patientUniqueId:PatientUniqueId,DoctorWorkId,Date:data[i].Date,Status1:"Completed"});
             let new_data = {
                 "PatientName" : PatientName.patientName, 
                 "DoctorName" : DoctorName.Username,
@@ -615,7 +617,7 @@ router.post('/ChangeStatus',async (req,res)=>{
     // // const Date=today;
     // const Status1=req.body.Status1;
 
-    let data=await AppointmentDataSchema.findOne({PatientUniqueId});
+    let data=await AppointmentDataSchema.findOne({PatientUniqueId,Status1:"Pending"});
     if(data==null)
         {
             res.json({"Status":"No appointment for this id"});
@@ -698,10 +700,10 @@ router.post("/ShowToPatientUp",async (req,res)=>{
     // res.send(data) ; 
 
     if (data.length == 0){
-      res.send("Not find any data") ; 
+      res.json({Status:"Not find any data"}) ; 
     }
     else{
-      res.send("Find data") ; 
+      res.json(data) ; 
     }
 
     // let new_data=data;

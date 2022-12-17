@@ -6,6 +6,7 @@ import { Appointment } from '../Appointment/Appointment'
 import { PrevAppointments } from '../Previous_Appointment/PrevAppointments'
 import { PrevMedicines } from '../Show_Medicines/PrevMedicines'
 import {UpcomingApp} from '../Upcoming_app/UpcomingApp';
+import { PreviousData } from '../previous data/PreviousData'
 export const PatientDash = () => {
     const {id}=useParams();
     console.log(id);
@@ -29,6 +30,10 @@ comp=<Main/>
     else if(id=="UpcomingApp")
     {
         comp=<UpcomingApp/>
+    }
+    else if(id=="PrevData")
+    {
+        comp=<PreviousData/>
     }
     return (
         <>
