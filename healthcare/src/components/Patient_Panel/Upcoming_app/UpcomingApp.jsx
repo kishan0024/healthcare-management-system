@@ -56,16 +56,22 @@ export const UpcomingApp = () => {
                   </Link>
               </div>
               <div className='wrapper_4  text-center' style={{fontSize:"1.2rem"}}>
+                <div className='app_div'>
+                    <div className='app_div_1 m-2' style={{"backgroundColor":"rgb(225, 225, 225)"}}>
+                        <div>Date</div>
+                        <div>Time</div>
+                        <div>Doctor Id</div>
 
+                    </div>
                   {prevReportList!="noData" ? prevReportList.map((e)=>{
 
                   return(
-                      <div className='app_div'>
+                      
                       <div className='app_div_1'>
                           <div>{e.Date}</div>
                           <div>{e.StartTime+"-"+e.EndTime}</div>
                           <div>{e.DoctorWorkId}</div>
-                      </div>
+                    
                   </div>
                   )
                   })
@@ -74,6 +80,8 @@ export const UpcomingApp = () => {
                   <div className='text_big'>You don't have any upcoming appointment..</div>
                   </>
                 }
+                </div>
+
                 
 
 

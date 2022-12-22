@@ -80,7 +80,7 @@ export const PreviousData = () => {
       <div className='pop_up_desc' id="pop_up_desc">
         <div className='pop_up_desc_inner'>
         <div className='w-100 m-1'>
-               q  
+               
               <i class="fa fa-window-close" aria-hidden="true" style={{color:"#388087",fontSize:"1.5rem",cursor:"pointer"}} onClick={close_pop_up}></i>
           
         </div>

@@ -252,11 +252,13 @@ router.post("/MarkLeave", async (req, res) => {
                                   </html>
                                     `
                   };
+                  console.log("sdsd");
                   transporter.sendMail(mailoptions, async function (error, info) {
                     if (error) {
-                      res.json({Status:"something went wrong while sending mail.."});
+                      console.log(error);
+                      // res.json({Status:"something went wrong while sending mail.."});
                     } else {
-                      // console.log('Email sent: ' + info.response);
+                      console.log('Email sent: ' + info.response);
                     }
                   });
 

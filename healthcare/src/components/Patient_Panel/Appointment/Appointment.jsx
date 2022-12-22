@@ -101,7 +101,7 @@ export const Appointment = () => {
     setTiming(keyPair[parseInt(e.target.id) - 1]);
 
   }
-
+//to book appointment for the patient and it will check if doctor is on leave that day 
   const BookAppointment = async () => {
 
     var today = new Date(Date1);
@@ -119,10 +119,10 @@ export const Appointment = () => {
 
     var date1, date2, flag = 0;
     var date3 = new Date(Date1);
-    if (DocLeave) {
+    if (DocLeave && DocLeave.StartDate && DocLeave.EndDate) {
       date1 = new Date(DocLeave.StartDate);
       date2 = new Date(DocLeave.EndDate);
-      // console.log(date1, date2, date3);
+      console.log(date1, date2, date3);
       if (date3 >= date1 && date3 <= date2) {
         flag = 1;
       }
@@ -212,9 +212,11 @@ export const Appointment = () => {
 
     let req1 = await fetch("http://localhost:5000/Leave/FetchLeave", options1);
     let res1 = await req1.json();
-
-    setDocLeave({ "StartDate": res1.Date.split("/").reverse().join("/"), "EndDate": res1.EndDate.split("/").reverse("/").join("/") });
-    console.log(DocLeave);
+    console.log(res1);
+    const start=res1.Date.split("/").reverse().join("/");
+    const end=res1.EndDate.split("/").reverse("/").join("/")
+    setDocLeave({ "StartDate":start, "EndDate": end });
+    console.log(start,end,DocLeave);  
 
   }
 

@@ -58,11 +58,18 @@ export const PrevAppointments = () => {
                     </Link>
                 </div>
                 <div className='wrapper_4  text-center' style={{fontSize:"1.2rem"}}>
+            <div className='app_div'>
+                     <div className='app_div_1 m-2' style={{"backgroundColor":"rgb(225, 225, 225)"}}>
+                        <div>Date</div>
+                        <div>Time</div>
+                        <div>Doctor Id</div>
+
+                    </div>
 
                     { prevReportList!="nodata" ? prevReportList.map((e)=>{
 
                     return(
-                        <div className='app_div'>
+                      <>
                         <div className='app_div_1'>
                             <div>{e.Date}</div>
                             <div>{e.StartTime+"-"+e.EndTime}</div>
@@ -71,15 +78,19 @@ export const PrevAppointments = () => {
                         <div className='app_div_2'>
                             <button type="submit" className="btn btn-primary w-auto" onClick={()=>viewBill(e.URL)}>View Bill</button>
                         </div>
-                    </div>
+                    </>
                     )
                     })
                     :
-                    <div className='text_big'>
-                        No previous appointments</div>
+                    <>
+                    <div className='text_big app_div_1'>
+                        No previous appointments
+                        </div>
+                    </>
+                    
                 }
                   
-
+            </div>
 
                 </div>
             </div>

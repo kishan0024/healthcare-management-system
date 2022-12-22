@@ -7,9 +7,13 @@ import Autocomplete from 'react-autocomplete'
 import {storage} from './firebase'
 import {ref, uploadBytes,uploadBytesResumable,getDownloadURL,uploadString} from 'firebase/storage';
 import {v4} from 'uuid';
-// import {}
+import { Navigate, useNavigate } from 'react-router-dom';
+
+
+
 
 export const Pharmacist_Dash = () => {
+  const navigate=useNavigate();
   const [data1,setData1]=useState();
   const [UniqueId, setPatientId] = useState();
   const [patientName, setPName] = useState();
@@ -441,6 +445,12 @@ const search_pre=async()=>{
 
 console.log(presData);
 }
+
+if(sessionStorage.getItem("usertype")!="Pharmacist")
+{
+  console.log("ad");
+  navigate("/");
+} 
 
 
 

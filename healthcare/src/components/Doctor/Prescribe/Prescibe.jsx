@@ -39,6 +39,7 @@ export const Prescibe = () => {
 
   const [Height,setHeight]=useState();
   const [Weight,setWeight]=useState();
+  const [BloodPressure,setBlood]=useState();
 
 
   useEffect(() => {
@@ -255,7 +256,8 @@ export const Prescibe = () => {
     const data={
       "patientUniqueId":id2,
       "Height":Height,
-      "Weight":Weight
+      "Weight":Weight,
+      "BloodPressure":BloodPressure
     }
     let options = {
       method: 'POST',
@@ -403,6 +405,9 @@ export const Prescibe = () => {
               </div>
               <div class="col">
                 <input type="text" class="form-control" placeholder="Height(CMs)" onChange={e=>setHeight(e.target.value)}/>
+              </div>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Blood Pressure" onChange={e=>setBlood(e.target.value)}/>
               </div>
             </div>
          

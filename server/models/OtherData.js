@@ -24,6 +24,11 @@ const OtherSchema=new Schema({
     "Weight":{
         type:String,
         required:true
+    },
+
+    "BloodPressure":{
+        type:String,
+        required:true
     }
  
  }); 

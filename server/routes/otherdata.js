@@ -8,11 +8,13 @@ router.post("/AddHW",async(req,res)=>{
     // const Date
     const Height=req.body.Height;
     const Weight=req.body.Weight;
+    const BloodPressure=req.body.BloodPressure;
 
     const create_new_data=new OtherSchema({
         patientUniqueId,
         Height,
-        Weight
+        Weight,
+        BloodPressure
     });
 
     create_new_data.save(); 

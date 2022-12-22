@@ -1,10 +1,17 @@
 import React from 'react'
 import './side.css';
 import HealingIcon from '@mui/icons-material/Healing';
+import { useNavigate } from 'react-router-dom';
 
 import FontAwesomeIcon from '@fortawesome/fontawesome-svg-core'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 export const Sidebar_pharmacist = () => {
+  const navigate = useNavigate();
+  const logout=()=>{
+    sessionStorage.clear();
+    navigate("/");
+  }
+
   return (
     <div className='sidebar_div'>
       <div className='d-row w-100 text-center mt-1'>
@@ -57,6 +64,13 @@ export const Sidebar_pharmacist = () => {
             <div>Add Stock</div>
 
           </Link>
+
+        </div>
+
+        <div style={{"fontSize":"1.3rem"}}>
+
+            <div className='w-100' style={{"backgroundColor":"white","color":"#388087","borderRadius":"0.3rem","cursor":"pointer"}} onClick={()=>logout()}>Log Out</div>
+
 
         </div>
 
