@@ -99,23 +99,7 @@ export const PrevMedicines = () => {
 
                                 </table>
                             </div>
-                            <div className='med_div_2 '>
-                                {selectedId == "0" ?
-                                    <>
-                                        <button type="submit" className="btn btn-primary w-auto" style={{ "color": "white", fontSize: "1rem", borderRadius: "10%" }} name={count++} onClick={(e) => { setDropDown(e) }}>
-
-                                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                                        </button>
-                                    </> :
-                                    <>
-                                        <button type="submit" className="btn btn-primary w-auto" style={{ "color": "white", fontSize: "1rem", borderRadius: "10%" }} name={count++} onClick={(e) => { setDropDown(e) }}>
-
-                                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
-                                        </button>
-
-                                    </>}
-
-                            </div>
+                        
 
                         </div>
                     )

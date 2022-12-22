@@ -3,6 +3,7 @@ const UserSchema=require("../models/UserSchema");
 const PatientSchema=require("../models/patientSchema");
 const AppointmentSchema=require("../models/AppointmentDataSchema");
 const AppointmentDataSchema = require("../models/AppointmentDataSchema");
+const DiseaseSchema=require("../models/DiseaseSchema");
 const router=express.Router();
 
 
@@ -52,6 +53,25 @@ router.post("/AllDataDoc",async(req,res)=>
 
     res.json(all_doc_data);
     // const 
+})
+
+
+
+router.post("/chartData",async (req,res)=>{
+    
+    const data=await DiseaseSchema.aggregate(
+        [
+          // First Stage
+          {
+            $group :
+              {
+                _id : "$DiseaseName",
+                count: { $sum:1 }
+              }
+           }
+         ]
+       )
+    res.json({"data":data});
 })
 
 

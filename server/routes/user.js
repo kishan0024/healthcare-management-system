@@ -88,7 +88,6 @@ router.post('/SignUp',async (req,res)=>{
         }
         else
         {
-            console.log("asdfa");
             create_new_user.save();
             res.json(create_new_user);
         }

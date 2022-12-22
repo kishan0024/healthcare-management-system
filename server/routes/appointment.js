@@ -523,7 +523,7 @@ router.post("/ShowToPatient",async (req,res)=>{
     var yyyy = today.getFullYear();
     today = dd + '/' + mm + '/' + yyyy;
 
-    let data=await AppointmentDataSchema.find({PatientUniqueId});
+    let data=await AppointmentDataSchema.find({PatientUniqueId,Status1:"Completed"});
     // let new_data=data;
     if(data.length==0)
     {
@@ -646,7 +646,7 @@ router.post('/ChangeStatus_doctor',async (req,res)=>{
     // // const Date=today;
     // const Status1=req.body.Status1;
 
-    let data=await AppointmentDataSchema.findOne({PatientUniqueId});
+    let data=await AppointmentDataSchema.findOne({PatientUniqueId,Date:today});
     if(data==null)
         {
             res.json({"Status":"No appointment for this id"});

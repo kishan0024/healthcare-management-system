@@ -76,6 +76,6 @@
     overflow: auto;
     font-size: 1rem;
     max-height: 15rem;
-    display: none;
+    display: block;
 }
 

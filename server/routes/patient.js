@@ -144,7 +144,7 @@ if(data==null)
 {
     res.json({Status:"No user Found"});
 }
-
+else
 res.json(data);
 
 });

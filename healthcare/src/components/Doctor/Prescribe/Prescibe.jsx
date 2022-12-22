@@ -246,8 +246,8 @@ export const Prescibe = () => {
       body: JSON.stringify({ PatientUniqueId: id2 })
     }
     let req = await fetch("http://localhost:5000/Appointment/ChangeStatus_doctor", options);
-    let res = await req.json();
-
+    const res = await req.json();
+    console.log(res);
     navigate('/Doctor/Dashboard');
 
   }

@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom';
 import './D_panel.css'
 export const D_panel = () => {
   const [data, setData] = useState({});
+  const [news, setNews] = useState();
+
+
 
   const navigate = useNavigate();
 
@@ -42,10 +45,39 @@ export const D_panel = () => {
     }
     func1();
 
+
+    const func2 = async () => {
+      let options = {
+        method: 'GET',
+        headers: {
+  
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+       
+      }
+      let req = await fetch("https://newsapi.org/v2/top-headlines?country=in&category=health&apiKey=fdbf28bad7a0407a9d86fc752a506ba1");
+      let res = await req.json();
+  
+
+      const temp=[];
+
+      for(let i=0;i<5;i++)
+      {
+        temp.push(res.articles[i]);
+      }
+      setNews(temp);
+      console.log(news);
+
+  
+
+      
+    }
+    func2();
+
   }, [])
 
 
-  const logout=()=>{
+  const logout = () => {
     sessionStorage.clear();
     navigate("/");
   }
@@ -62,7 +94,7 @@ export const D_panel = () => {
           {gmail}
           <i className="fas fa-user p-2"></i>
           <div>
-            <button type="button" class="btn btn-primary w-auto" style={{ backgroundColor: "black", color: "white" }} onClick={()=>logout()}>Log Out</button>
+            <button type="button" class="btn btn-primary w-auto" style={{ backgroundColor: "black", color: "white" }} onClick={() => logout()}>Log Out</button>
           </div>
         </div>
 
@@ -87,8 +119,23 @@ export const D_panel = () => {
           <div className='right_side'>
             <div style={{ fontSize: "1.5rem" }} className="text_color w-100">News Section</div>
             <div className='news_in'>
-              <div className='text-center w-100 '>headline</div>
-              <div className='text-center w-100 light_color'>brief</div>
+
+              {news ?
+              <>
+                {news.map((e)=>{
+                  return(
+                    <div style={{"fontSize":"1rem","marginTop":"0.5rem"}}>
+                    {/* <> */}
+                    <div className='text-left p-2 w-100 '>{e.title}</div>
+                    <div className='text-left p-2 w-100 light_color '>{e.description}</div>
+                    </div>
+                  )
+                })}
+              </>
+              :
+              <></>
+              }
+            
             </div>
 
           </div>
