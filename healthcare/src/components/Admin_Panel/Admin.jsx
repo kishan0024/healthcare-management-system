@@ -11,6 +11,7 @@ import { Pharmacist_data } from '../data/Pharmacist_data';
 import { Patient_data } from '../data/Patient_data';
 import { AddPatient } from '../forms/AddPatient';
 import {Appointment_Data} from '../data/Appointment_Data';
+import { UploadReport } from '../Doctor/Upload Rep/UploadReport';
 export const Admin = () => {
     let comp;
     const {id}=useParams();
@@ -46,7 +47,10 @@ export const Admin = () => {
     {
       comp=<Appointment_Data/>
     }
-
+    else if(id=="AddReport")
+    {
+      comp=<UploadReport/>
+    }
 
     // else if(id=="")
 
